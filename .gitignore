@@ -1,2 +1,8 @@
+<<<<<<< HEAD
 restauth_package
 .env
+=======
+.venv/
+.env
+test_db.sqlite3
+>>>>>>> 3ce4b0e (FIxes)

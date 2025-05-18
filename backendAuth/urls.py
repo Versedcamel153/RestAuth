@@ -16,10 +16,28 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 3ce4b0e (FIxes)
 from .views import *
 
 urlpatterns = [
     path('google/', GoogleLogin.as_view(), name='google_login'),
     path('registration/', include('dj_rest_auth.registration.urls')),
     path('', include('dj_rest_auth.urls')),
+<<<<<<< HEAD
+=======
+=======
+from .views import GoogleLogin, CustomPasswordResetConfirmView, CustomPasswordResetView
+
+
+urlpatterns = [
+    path('google/', GoogleLogin.as_view(), name='rest_google_login'),
+    path('registration/', include('dj_rest_auth.registration.urls')),
+    path('', include('dj_rest_auth.urls')),
+    path('password-reset/', CustomPasswordResetView.as_view(), name='password_reset'),
+    path('password/reset/confirm/', CustomPasswordResetConfirmView.as_view(), name='password_reset_confirm'),
+>>>>>>> 82b70b0 (Fixes)
+>>>>>>> 3ce4b0e (FIxes)
 ]

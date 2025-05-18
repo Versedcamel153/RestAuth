@@ -11,11 +11,26 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+from dotenv import load_dotenv
+>>>>>>> 82b70b0 (Fixes)
+>>>>>>> 3ce4b0e (FIxes)
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+
+=======
+load_dotenv(BASE_DIR / '.env')
+>>>>>>> 82b70b0 (Fixes)
+>>>>>>> 3ce4b0e (FIxes)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
@@ -61,12 +76,24 @@ REST_FRAMEWORK = {
 
 AUTH_USER_MODEL = 'backendAuth.CustomUser'
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+FRONTEND_RESET_URL = 'https://your-frontend-domain.com'  # Include trailing slash
+
+>>>>>>> 82b70b0 (Fixes)
+>>>>>>> 3ce4b0e (FIxes)
 REST_AUTH = {
     'USE_JWT': True,
     'JWT_AUTH_COOKIE': 'access_token',
     'JWT_AUTH_REFRESH_COOKIE': 'refresh_token',
     'USER_DETAILS_SERIALIZER': 'dj_rest_auth.serializers.UserDetailsSerializer',
     'REGISTER_SERIALIZER': 'backendAuth.serializers.CustomRegisterSerializer',
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 3ce4b0e (FIxes)
 }
 
 CALLBACK_URL = 'http://127.0.0.1:8000/api/auth/google/'
@@ -82,10 +109,34 @@ SOCIALACCOUNT_EMAIL_AUTHENTICATION_AUTO_CONNECT=True
 
 
 # Email and Account Settings
+<<<<<<< HEAD
+=======
+=======
+    'LOGIN_SERIALIZER': 'backendAuth.serializers.CustomLoginSerializer',
+    'PASSWORD_RESET_SERIALIZER': 'backendAuth.serializers.CustomPasswordResetSerializer',
+    'PASSWORD_RESET_CONFIRM_SERIALIZER': 'backendAuth.serializers.CustomPasswordResetConfirmSerializer'
+}
+
+
+CALLBACK_URL = 'http://127.0.0.1:8000/api/auth/google/'
+
+
+SITE_ID = 1
+SOCIALACCOUNT_ADAPTER = 'backendAuth.adapters.MySocialAccountAdapter'
+ACCOUNT_ADAPTER = 'backendAuth.adapters.CustomAccountAdapter'
+# Email and Account Settings
+SOCIALACCOUNT_AUTO_SIGNUP= True
+SOCIALACCOUNT_EMAIL_AUTHENTICATION_AUTO_CONNECT=True
+>>>>>>> 82b70b0 (Fixes)
+>>>>>>> 3ce4b0e (FIxes)
 ACCOUNT_SIGNUP_FIELDS = ['email*', 'username', 'password1*', 'password2*']
 ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_EMAIL_VERIFICATION = "none"
 ACCOUNT_LOGIN_METHODS = {"email"}  # Use email for authentication
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 3ce4b0e (FIxes)
 
 # Remove these non-standard settings
 # ACCOUNT_LOGIN_METHODS = {'email'}  # Remove this line
@@ -93,6 +144,18 @@ ACCOUNT_LOGIN_METHODS = {"email"}  # Use email for authentication
 
 
 # ...existing code...
+<<<<<<< HEAD
+=======
+=======
+# Remove username from signup fields and make email the only login method
+ACCOUNT_USERNAME_REQUIRED = False  # Don't require username
+ACCOUNT_AUTHENTICATION_METHOD = 'email'  # Only allow email login
+ACCOUNT_EMAIL_REQUIRED = True  # Make email mandatory
+ACCOUNT_UNIQUE_EMAIL = True  # Enforce unique emails
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None  # No username field
+
+>>>>>>> 82b70b0 (Fixes)
+>>>>>>> 3ce4b0e (FIxes)
 # Email backend settings
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
@@ -100,12 +163,25 @@ EMAIL_PORT = 465
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
 EMAIL_HOST_USER = 'faridswebapp@gmail.com'
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 3ce4b0e (FIxes)
 EMAIL_HOST_PASSWORD = 'pflydhmyzzxivxli'
 DEFAULT_FROM_EMAIL = 'faridswebapp@gmail.com'
 
 # Remove ACCOUNT_LOGIN_METHODS as it's not needed with these settings
 
 SITE_ID = 1
+<<<<<<< HEAD
+=======
+=======
+EMAIL_HOST_PASSWORD = 'xpzfntnxojbnsvid'
+DEFAULT_FROM_EMAIL = 'faridswebapp@gmail.com'
+
+
+>>>>>>> 82b70b0 (Fixes)
+>>>>>>> 3ce4b0e (FIxes)
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -142,6 +218,10 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 3ce4b0e (FIxes)
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -150,6 +230,42 @@ DATABASES = {
 }
 
 
+<<<<<<< HEAD
+=======
+=======
+
+DATABASE_URL = os.getenv("DATABASE_URL")
+DATABASES = {
+     'default': {
+         'ENGINE': os.getenv('ENGINE', 'django.db.backends.postgresql'),
+         'NAME': os.getenv('NAME'),
+         'USER': os.getenv('DB_USER'),
+         'PASSWORD': os.getenv('PASSWORD'),
+         'HOST': os.getenv('HOST'),
+         'PORT': os.getenv('PORT'),
+     }
+}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'test_db.sqlite3',
+#     }
+# }
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        }
+    }
+}
+
+>>>>>>> 82b70b0 (Fixes)
+>>>>>>> 3ce4b0e (FIxes)
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 
