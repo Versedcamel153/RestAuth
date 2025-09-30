@@ -1,0 +1,7 @@
+<<<<<<< HEAD
+restauth_package
+.env
+=======
+.venv/
+.env
+test_db.sqlite3
